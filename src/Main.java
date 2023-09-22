@@ -163,14 +163,20 @@ public class Main {
         int number;
         number = in.nextInt();
         in.nextLine();
-
+        boolean found = false;
         if(cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
+
             while( cBook.hasNext() ) {
                 Contact c = cBook.next();
-                if(c.getPhone() == number)
+                if(c.getPhone() == number){
+                    found = true;
                     System.out.println(c.getName());
-                break;
+                    break;
+                }
+            }
+            if(!found){
+                System.out.println(NUMBER_NOT_EXIST);
             }
         }
     }
