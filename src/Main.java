@@ -13,7 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String GET_NUMBER     = "GN";
+    public static final String GET_NAME     = "GN";
     public static final String CHECK_REPEATED = "EP";
     public static final String QUIT           = "Q";
 
@@ -58,11 +58,11 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
-                case GET_NUMBER:
-                    
+                case GET_NAME:
+                    getName(in, cBook);
                     break;
                 case CHECK_REPEATED:
-                    
+                    checkRepeatedNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -159,12 +159,26 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void getNumber(Scanner in, ContactBook cBook) {
-    
-    
+    private static void getName(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt();
+        in.nextLine();
+
+        if(cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            while( cBook.hasNext() ) {
+                Contact c = cBook.next();
+                if(c.getPhone() == number)
+                    System.out.println(c.getName());
+                break;
+            }
+        }
     }
 
     private static void checkRepeatedNumbers(ContactBook cBook) {
-        
+        if(cBook.hasDuplicates())
+            System.out.println(REPEATED_EXIST);
+        else
+            System.out.println(NO_REPEATED);
     }
 }
