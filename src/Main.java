@@ -175,9 +175,10 @@ public class Main {
                     break;
                 }
             }
-            if(!found){
-                System.out.println(NUMBER_NOT_EXIST);
-            }
+
+        }
+        if(!found){
+            System.out.println(NUMBER_NOT_EXIST);
         }
     }
 
