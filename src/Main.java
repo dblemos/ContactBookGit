@@ -25,7 +25,8 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
-    public static final String NO_REPEATED = "All contacts have different phone numbers."
+    public static final String NO_REPEATED = "All contacts have different phone numbers.";
+    public static final String REPEATED_EXIST = "There are contacts that share phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -158,16 +159,12 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void getNumber(Scanner in, ContacttBook cBook) {
+    private static void getNumber(Scanner in, ContactBook cBook) {
     
     
     }
 
     private static void checkRepeatedNumbers(ContactBook cBook) {
-        if(cBook.getNumberOfContacts() != 0) {
-            
-
-        } 
-        else System.out.println(
+        
     }
 }
